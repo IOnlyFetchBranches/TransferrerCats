@@ -7,6 +7,44 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <ComboBox HorizontalAlignment="Left" Margin="60,65,0,0" VerticalAlignment="Top" Width="59" SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="0" RenderTransformOrigin="1.042,0.577">
+            <ComboBoxItem Content="TEST"/>
+        </ComboBox>
+        <Label Content="From..." HorizontalAlignment="Left" Margin="67,34,0,0" VerticalAlignment="Top"/>
+        <Label Content="Do..." HorizontalAlignment="Left" Margin="28,107,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="To Surplus" HorizontalAlignment="Left" Margin="67,107,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Transfer To" HorizontalAlignment="Left" Margin="66,127,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="156,123,0,0" VerticalAlignment="Top" Width="69" SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="0" IsEnabled="False">
+            <ComboBoxItem Content="TEST"/>
+        </ComboBox>
+        <Separator HorizontalAlignment="Left" Height="100" Margin="142,110,0,0" VerticalAlignment="Top" Width="317" RenderTransformOrigin="0.5,0.5">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.348"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <TabControl HorizontalAlignment="Left" Height="309" Margin="303,0,0,0" VerticalAlignment="Top" Width="214">
+            <TabItem Header="Items">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Console">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="49*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button Content="Go" HorizontalAlignment="Left" Margin="140,220,0,0" VerticalAlignment="Top" Width="75" IsDefault="True"/>
+        <ComboBox HorizontalAlignment="Left" Margin="95,167,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+            <ComboBoxItem Content="Serial"/>
+        </ComboBox>
+        <Label Content="By..." HorizontalAlignment="Left" Margin="60,163,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
