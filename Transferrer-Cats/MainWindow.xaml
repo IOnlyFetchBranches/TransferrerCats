@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Transferrer_Cats"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Transferrer" Height="350" Width="525">
     <Grid>
-        <ComboBox HorizontalAlignment="Left" Margin="60,65,0,0" VerticalAlignment="Top" Width="59" SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="0" RenderTransformOrigin="1.042,0.577">
+        <ComboBox x:Name="MainFrom" HorizontalAlignment="Left" Margin="60,65,0,0" VerticalAlignment="Top" Width="59" SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="0" RenderTransformOrigin="1.042,0.577">
             <ComboBoxItem Content="TEST"/>
         </ComboBox>
         <Label Content="From..." HorizontalAlignment="Left" Margin="67,34,0,0" VerticalAlignment="Top"/>
         <Label Content="Do..." HorizontalAlignment="Left" Margin="28,107,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="To Surplus" HorizontalAlignment="Left" Margin="67,107,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Transfer To" HorizontalAlignment="Left" Margin="66,127,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="156,123,0,0" VerticalAlignment="Top" Width="69" SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="0" IsEnabled="False">
+        <RadioButton x:Name="MainSurplusRB" Content="To Surplus" HorizontalAlignment="Left" Margin="67,107,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="MainTransferRB" Content="Transfer To" HorizontalAlignment="Left" Margin="66,127,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="MainTransferTo" HorizontalAlignment="Left" Margin="156,123,0,0" VerticalAlignment="Top" Width="69" SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="0" IsEnabled="False">
             <ComboBoxItem Content="TEST"/>
         </ComboBox>
         <Separator HorizontalAlignment="Left" Height="100" Margin="142,110,0,0" VerticalAlignment="Top" Width="317" RenderTransformOrigin="0.5,0.5">
@@ -27,9 +27,22 @@
                 </TransformGroup>
             </Separator.RenderTransform>
         </Separator>
-        <TabControl HorizontalAlignment="Left" Height="309" Margin="303,0,0,0" VerticalAlignment="Top" Width="214">
-            <TabItem Header="Items">
-                <Grid Background="#FFE5E5E5"/>
+        <TabControl x:Name="MainTabControl" HorizontalAlignment="Left" Height="309" Margin="303,0,0,0" VerticalAlignment="Top" Width="214">
+            <TabItem x:Name="MainItemsTab" Header="Items">
+                <Grid x:Name="ItemGrid" Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ListView x:Name="ItemView" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="251" VerticalAlignment="Top" Width="208" Margin="0,30,0,0">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button x:Name="ItemAddButton" Grid.ColumnSpan="2" Content="Add Item" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Height="30" Click="Button_Click"/>
+                </Grid>
             </TabItem>
             <TabItem Header="Console">
                 <Grid Background="#FFE5E5E5">
@@ -41,10 +54,10 @@
             </TabItem>
         </TabControl>
         <Button Content="Go" HorizontalAlignment="Left" Margin="140,220,0,0" VerticalAlignment="Top" Width="75" IsDefault="True"/>
-        <ComboBox HorizontalAlignment="Left" Margin="95,167,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+        <ComboBox x:Name="MainBy" HorizontalAlignment="Left" Margin="95,167,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
             <ComboBoxItem Content="Serial"/>
         </ComboBox>
-        <Label Content="By..." HorizontalAlignment="Left" Margin="60,163,0,0" VerticalAlignment="Top"/>
+        <Label Content="Id By..." HorizontalAlignment="Left" Margin="46,167,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
